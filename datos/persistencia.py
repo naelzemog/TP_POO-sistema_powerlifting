@@ -11,7 +11,7 @@ class BaseDeDatos:
         cursor = conexion.cursor()
         try:
             conexion.autocommit = False 
-            # Cambiado a 'peso' para que coincida con tu tabla atletas
+            
             cursor.execute("SELECT id_atleta FROM atletas WHERE nombre = %s", (atleta.nombre,))
             resultado = cursor.fetchone()
             
@@ -22,7 +22,7 @@ class BaseDeDatos:
                 cursor.execute("INSERT INTO atletas (nombre, peso) VALUES (%s, %s)", (atleta.nombre, atleta.peso))
                 id_atleta = cursor.lastrowid
 
-            # Cambiado a 'variante_recetada' para coincidir con el registro histórico
+           
             sql_eval = "INSERT INTO evaluaciones (id_atleta, movimiento, variante_recomendada, rm_evaluado) VALUES (%s, %s, %s, %s)"
             cursor.execute(sql_eval, (id_atleta, ejercicio_base.nombre, variante_rec.nombre_variante, float(rm_evaluado)))
             
@@ -38,7 +38,7 @@ class BaseDeDatos:
     def leer_historial_con_join(self):
         conexion = self._conectar()
         cursor = conexion.cursor()
-        # SELECCIONAMOS EL ID PARA QUE EL USUARIO PUEDA VERLO
+        
         sql = """
             SELECT e.id_evaluacion, a.nombre, e.movimiento, e.variante_recomendada, e.rm_evaluado
             FROM atletas a

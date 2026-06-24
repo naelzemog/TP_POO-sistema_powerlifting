@@ -20,9 +20,9 @@ class Persona:
 
     @nombre.setter
     def nombre(self, valor):
-        # Eliminamos espacios para verificar
+       
         limpio = valor.strip()
-        # Verificar si hay números en el string
+        
         if any(char.isdigit() for char in limpio):
             raise ValueError("El nombre no puede contener números.")
         if len(limpio) < 3:

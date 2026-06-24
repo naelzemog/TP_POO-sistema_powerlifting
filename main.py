@@ -1,6 +1,6 @@
-from objetos import Persona, Ejercicio, ValidacionAtletaError
-from funciones import Recomendador
-from persistencia import BaseDeDatos
+from clases.objetos import Persona, Ejercicio, ValidacionAtletaError
+from servicios.funciones import Recomendador
+from datos.persistencia import BaseDeDatos
 
 def obtener_dato(mensaje, tipo=float):
     """Función auxiliar para validar cada entrada una por una."""
@@ -75,7 +75,7 @@ def main():
                 
             case "3":
                 try:
-                    # Se pide primero ver la tabla para saber qué ID modificar
+                    
                     print("\n(Tip: Revisá la opción 2 para conocer el ID de la evaluación)")
                     id_ev = int(input("Ingresá el ID de la evaluación a modificar: "))
                     nueva_var = input("Nueva variante a recetar: ")
