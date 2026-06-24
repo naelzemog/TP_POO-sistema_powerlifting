@@ -2,19 +2,6 @@ from clases.objetos import Persona, Ejercicio, ValidacionAtletaError
 from servicios.funciones import Recomendador
 from datos.persistencia import BaseDeDatos
 
-def obtener_dato(mensaje, tipo=float):
-    """Función auxiliar para validar cada entrada una por una."""
-    while True:
-        try:
-            valor = input(mensaje)
-            if tipo == str:
-                if not valor.strip(): raise ValueError("El nombre no puede estar vacío.")
-                if any(char.isdigit() for char in valor): raise ValueError("El nombre no debe contener números.")
-                return valor
-            return tipo(valor)
-        except ValueError as e:
-            print(f"❌ Error: {e}. Intente de nuevo.")
-
 def main():
     db = BaseDeDatos()
     
