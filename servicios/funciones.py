@@ -1,4 +1,4 @@
-from Clases.objetos import Variante
+from clases.objetos import Variante
 
 class Recomendador:
     def buscar(self, nombre_ejercicio, fase):
